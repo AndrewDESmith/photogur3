@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
   end
 
   def show
-    @picture = Picture.find(params(:id))
+    @picture = Picture.find(params[:id])
     # params is a method being called, which takes the :id parameter, and whose output is in turn returned as a parameter for the find method called on Picture.
   end
 
