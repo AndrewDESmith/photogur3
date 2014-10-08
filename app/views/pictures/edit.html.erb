@@ -1,0 +1,10 @@
+<%= link_to("Back", @picture) %>
+<%= form_for(@picture) do |f| %>
+  <%= f.label "artist" %><br>
+  <%= f.text_field :artist %><br>
+  <%= f.label "title" %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label "url" %><br>
+  <%= f.text_field :url %><br>
+  <%= f.submit "Update Picture" %>
+<% end %>

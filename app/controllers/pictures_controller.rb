@@ -24,6 +24,26 @@ class PicturesController < ApplicationController
     end
   end
 
+  def edit
+    @picture = Picture.find(params[:id])
+    # Find the relevant picture (identified by id) for the edit route?
+    # get "pictures/:id/edit" => "pictures#edit", as: "edit_picture"
+  end
+
+  def update
+    @picture = Picture.find(params[:id])
+    # Find the relevant picture (identified by id) for the update route?
+    # patch "pictures/:id" => "pictures#update"
+
+    if @picture.update_attributes(picture_params)
+      redirect_to "pictures/#{@picture.id}"
+      # If the relevant picture has its attributes (referred to in picture_params) successfully updated on the edit page, return the user to the picture's show page to demonstrate the updated nformation.
+    else
+      render :edit
+      # Otherwise, re-render the edit page to allow the user to try again.
+    end
+  end
+
   private
   def picture_params
     params.require(:picture).permit(:artist, :title, :url)
